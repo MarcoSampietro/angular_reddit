@@ -1,4 +1,4 @@
-export class Article {
+export default class Article {
     title: string;
     link: string;
     votes: number;
