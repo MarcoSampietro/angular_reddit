@@ -14,4 +14,4 @@
     </button>
   </form>
 </div>
-<app-article class='card'></app-article>
+<app-article *ngFor="let art of sortedArticles()" [article]="art"></app-article>
