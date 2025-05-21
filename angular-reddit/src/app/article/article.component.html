@@ -1,12 +1,18 @@
+<!-- Intestazione della card: mostra i voti -->
 <div class="card-header">
-    <h3> {{ votes }} Points </h3>
+  <h3>{{ article.votes }} Points</h3>
 </div>
+
+<!-- Corpo della card: mostra il titolo come link -->
 <div class="card-body">
-  <a href="{{ link }}"> {{ title }}</a>
+  <a [href]="article.link">{{ article.title }}</a>
 </div>
+
+<!-- Footer della card: contiene i pulsanti di voto -->
 <div class="card-footer">
-   <div class="btn-group">
-      <a href (click)="voteUp()" class="btn btn-secondary"> upvote </a>
-      <a href (click)="voteDown()" class="btn btn-secondary"> downvote </a>
+  <div class="btn-group">
+    <!-- Quando clicco chiamo voteUp -->
+    <button (click)="voteUp()" class="btn btn-secondary">upvote</button>
+    <button (click)="voteDown()" class="btn btn-secondary">downvote</button>
   </div>
 </div>

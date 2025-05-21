@@ -1,28 +1,23 @@
-import { Component, OnInit, HostBinding } from '@angular/core';
+import { Component } from '@angular/core';
+import { Article } from './app.model'; // <-- import this
 
 @Component({
-  selector: 'app-article',
-  imports: [],
-  templateUrl: './article.component.html',
-  styleUrl: './article.component.css'
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
 })
-export class ArticleComponent {
-  @HostBinding('attr.class') cssClass = 'card';
-  votes: number;
-  title: string;
-  link: string;
-  constructor() {
-    this.title = 'Angular 2';
-    this.link = 'http://angular.io';
-    this.votes = 10;
+export class AppComponent {
+  articles:Article[];   // <-- component property
+  constructor(){
+    this.articles = [
+      new Article('Angular 2', 'http://angular.io', 3),
+      new Article('Fullstack', 'http://fullstack.io', 2),
+      new Article('Angular Homepage', 'http://angular.io', 1),
+    ];
   }
-  voteUp():Boolean { //Aggiunto tipo di ritorno
-    this.votes += 1;
-    return false; //Non propagare l'evento 
+
+  addArticle(title: HTMLInputElement, link: HTMLInputElement): boolean {
+    this.articles.push(new Article('Angular 2', 'http://angular.io', 3));
+    return false;
   }
-  voteDown():Boolean{
-    this.votes -= 1;
-  return false; //Non propagare l'evento 
-  }
-  ngOnInit() {}
 }
